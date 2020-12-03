@@ -33,7 +33,7 @@ def getsingles(url):
         link = "http://www.officialcharts.com" + link
 
         # Write weekly albums to CSV
-        with open("output.csv","a",newline="", encoding="utf-8") as resultFile:
+        with open("official_charts_data.csv","a",newline="", encoding="utf-8") as resultFile:
             wr = csv.writer(resultFile)
             wr.writerows(allsingles)
             resultFile.close()
