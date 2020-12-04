@@ -1,0 +1,91 @@
+National Records of Scotland
+
+"C11"
+"Scotland's Census 2011 - National Records of Scotland Table QS203SC - Country of birth All people "
+"Scottish Council Area 2011 by Country of birth (Flat) by Term-time Address (Indicator)"
+"Counting: Person"
+
+Filters:
+"Default Summation","Person"
+"Term-time Address (Indicator)","Resident"
+
+"Counting","Term-time Address (Indicator)","Scottish Council Area 2011","Country of birth (Flat)","Count",
+"Person","Resident","Scotland","All people",5295403
+"Person","Resident","Scotland","Europe",5098362
+"Person","Resident","Scotland","Europe: United Kingdom",4926119
+"Person","Resident","Scotland","Europe: United Kingdom: England",459486
+"Person","Resident","Scotland","Europe: United Kingdom: Northern Ireland",36655
+"Person","Resident","Scotland","Europe: United Kingdom: Scotland",4411884
+"Person","Resident","Scotland","Europe: United Kingdom: Wales",17381
+"Person","Resident","Scotland","Europe: United Kingdom: UK part not specified",713
+"Person","Resident","Scotland","Europe: Channel Islands and Isle of Man",1662
+"Person","Resident","Scotland","Europe: Republic of Ireland",22952
+"Person","Resident","Scotland","Europe: Other Europe",147629
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries",134910
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries: Member countries in March 2001",56656
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries: Member countries in March 2001: France",7147
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries: Member countries in March 2001: Germany",22274
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries: Member countries in March 2001: Greece",2380
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries: Member countries in March 2001: Italy",6048
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries: Member countries in March 2001: Netherlands",4117
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries: Member countries in March 2001: Spain",4908
+"Person","Resident","Scotland","Europe: Other Europe: EU Countries: Member countries in March 2001: Other member countries",9782
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011",78254
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011: Czech Republic",2245
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011: Hungary",2943
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011: Latvia",4475
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011: Lithuania",4287
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011: Poland",55231
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011: Romania",2387
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011: Slovakia",2549
+"Person","Resident","Scotland","Europe: Other Europe: Accession countries April 2001 to March 2011: Other accession countries",4137
+"Person","Resident","Scotland","Europe: Other Europe: Non EU countries",12719
+"Person","Resident","Scotland","Europe: Other Europe: Non EU countries: Russia",2180
+"Person","Resident","Scotland","Europe: Other Europe: Non EU countries: Turkey",2424
+"Person","Resident","Scotland","Europe: Other Europe: Non EU countries: Other Non EU countries",8115
+"Person","Resident","Scotland","Africa",46742
+"Person","Resident","Scotland","Africa: North Africa",5985
+"Person","Resident","Scotland","Africa: Central and Western Africa",14377
+"Person","Resident","Scotland","Africa: Central and Western Africa: Nigeria",9458
+"Person","Resident","Scotland","Africa: Central and Western Africa: Other Central and Western Africa",4919
+"Person","Resident","Scotland","Africa: South and Eastern Africa",26380
+"Person","Resident","Scotland","Africa: South and Eastern Africa: Kenya",2743
+"Person","Resident","Scotland","Africa: South and Eastern Africa: South Africa",10607
+"Person","Resident","Scotland","Africa: South and Eastern Africa: Zimbabwe",4666
+"Person","Resident","Scotland","Africa: South and Eastern Africa: Other South and Eastern Africa",8364
+"Person","Resident","Scotland","Middle East and Asia",104530
+"Person","Resident","Scotland","Middle East and Asia: Middle East",11593
+"Person","Resident","Scotland","Middle East and Asia: Middle East: Iran",2773
+"Person","Resident","Scotland","Middle East and Asia: Middle East: Iraq",2246
+"Person","Resident","Scotland","Middle East and Asia: Middle East: Other Middle East",6574
+"Person","Resident","Scotland","Middle East and Asia: Eastern Asia",25945
+"Person","Resident","Scotland","Middle East and Asia: Eastern Asia: China",15338
+"Person","Resident","Scotland","Middle East and Asia: Eastern Asia: Hong Kong (Special Administrative Region of China)",7586
+"Person","Resident","Scotland","Middle East and Asia: Eastern Asia: Other Eastern Asia",3021
+"Person","Resident","Scotland","Middle East and Asia: Southern Asia",49502
+"Person","Resident","Scotland","Middle East and Asia: Southern Asia: Bangladesh",2231
+"Person","Resident","Scotland","Middle East and Asia: Southern Asia: India",23489
+"Person","Resident","Scotland","Middle East and Asia: Southern Asia: Pakistan",20039
+"Person","Resident","Scotland","Middle East and Asia: Southern Asia: Other Southern Asia",3743
+"Person","Resident","Scotland","Middle East and Asia: South-East Asia",16771
+"Person","Resident","Scotland","Middle East and Asia: South-East Asia: Malaysia",4721
+"Person","Resident","Scotland","Middle East and Asia: South-East Asia: Philippines",4264
+"Person","Resident","Scotland","Middle East and Asia: South-East Asia: Singapore",3039
+"Person","Resident","Scotland","Middle East and Asia: South-East Asia: Other South-East Asia",4747
+"Person","Resident","Scotland","Middle East and Asia: Central Asia",719
+"Person","Resident","Scotland","The Americas and the Caribbean",33353
+"Person","Resident","Scotland","The Americas and the Caribbean: North America",25701
+"Person","Resident","Scotland","The Americas and the Caribbean: North America: Canada",9435
+"Person","Resident","Scotland","The Americas and the Caribbean: North America: United States of America",15919
+"Person","Resident","Scotland","The Americas and the Caribbean: North America: Other North America",347
+"Person","Resident","Scotland","The Americas and the Caribbean: Central America",933
+"Person","Resident","Scotland","The Americas and the Caribbean: South America",4665
+"Person","Resident","Scotland","The Americas and the Caribbean: The Caribbean",2054
+"Person","Resident","Scotland","Antarctica and Oceania",12408
+"Person","Resident","Scotland","Antarctica and Oceania: Australia",8279
+"Person","Resident","Scotland","Antarctica and Oceania: New Zealand",3632
+"Person","Resident","Scotland","Antarctica and Oceania: Other Antarctica and Oceania",497
+"Person","Resident","Scotland","Other",8
+
+
+" Crown copyright 2014 For further information on variables, see www.scotlandscensus.gov.uk/variables In order to protect against disclosure of personal information, some records have been swapped between different geographic areas.  Some cell values will be affected, particularly small values at the most detailed geographies. "

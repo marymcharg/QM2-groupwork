@@ -1,0 +1,98 @@
+National Records of Scotland
+
+"C01"
+"Scotland's Census 2001 - National Records of Scotland Table UV08 - Country of birth All people "
+"Output Area Code by Country of Birth by Person and Termtime Address Indicator"
+"Counting: Person"
+
+Filters:
+"Summation Options","Person"
+"Termtime Address Indicator","Resident"
+
+"Counting","Termtime Address Indicator","Output Area Code","Country of Birth","Count",
+"Person","Resident","Scotland","All people",5062011
+"Person","Resident","Scotland","Europe",4947980
+"Person","Resident","Scotland","United Kingdom",4870440
+"Person","Resident","Scotland","England",408948
+"Person","Resident","Scotland","Scotland",4410400
+"Person","Resident","Scotland","Northern Ireland",33528
+"Person","Resident","Scotland","Wales",16623
+"Person","Resident","Scotland","UK part not specified",941
+"Person","Resident","Scotland","Republic of Ireland",21774
+"Person","Resident","Scotland","Ireland part not specified",35
+"Person","Resident","Scotland","Channel Islands and Isle of Man",1620
+"Person","Resident","Scotland","Other Western Europe",46779
+"Person","Resident","Scotland","EU Countries",41836
+"Person","Resident","Scotland","Austria",826
+"Person","Resident","Scotland","Belgium",1108
+"Person","Resident","Scotland","Denmark",1309
+"Person","Resident","Scotland","Finland",631
+"Person","Resident","Scotland","France",4850
+"Person","Resident","Scotland","Germany",18703
+"Person","Resident","Scotland","Greece",1853
+"Person","Resident","Scotland","Italy",4936
+"Person","Resident","Scotland","Luxembourg",102
+"Person","Resident","Scotland","Netherlands",3255
+"Person","Resident","Scotland","Portugal",520
+"Person","Resident","Scotland","Spain",2555
+"Person","Resident","Scotland","Sweden",1188
+"Person","Resident","Scotland","Non EU Countries in Western Europe",4943
+"Person","Resident","Scotland","Eastern Europe",7332
+"Person","Resident","Scotland","Albania",63
+"Person","Resident","Scotland","Czech Republic",343
+"Person","Resident","Scotland","Romania",327
+"Person","Resident","Scotland","Poland",2505
+"Person","Resident","Scotland","Turkey",1042
+"Person","Resident","Scotland","Former Yugoslavia",895
+"Person","Resident","Scotland","Baltic States",306
+"Person","Resident","Scotland","Other European countries in former USSR",1258
+"Person","Resident","Scotland","Other Eastern Europe",593
+"Person","Resident","Scotland","Africa",22049
+"Person","Resident","Scotland","North Africa",3122
+"Person","Resident","Scotland","Central and Western Africa",2558
+"Person","Resident","Scotland","Democratic Republic of Congo",117
+"Person","Resident","Scotland","Nigeria",1253
+"Person","Resident","Scotland","Sierra Leone",112
+"Person","Resident","Scotland","Other Central and Western Africa",1076
+"Person","Resident","Scotland","South and Eastern Africa",16369
+"Person","Resident","Scotland","Kenya",2083
+"Person","Resident","Scotland","Somalia",159
+"Person","Resident","Scotland","South Africa",7803
+"Person","Resident","Scotland","Zimbabwe",2078
+"Person","Resident","Scotland","Other South and Eastern Africa",4246
+"Person","Resident","Scotland","Asia",55369
+"Person","Resident","Scotland","Middle East",7784
+"Person","Resident","Scotland","Cyprus",1533
+"Person","Resident","Scotland","Iran",1588
+"Person","Resident","Scotland","Iraq",1374
+"Person","Resident","Scotland","Other Middle East",3289
+"Person","Resident","Scotland","Far East",21441
+"Person","Resident","Scotland","China",3329
+"Person","Resident","Scotland","Hong Kong",7068
+"Person","Resident","Scotland","Japan",1142
+"Person","Resident","Scotland","Malaysia",2890
+"Person","Resident","Scotland","Singapore",2791
+"Person","Resident","Scotland","Other Far East",4221
+"Person","Resident","Scotland","Western and Central Asia     (Asian countries in former USSR)",171
+"Person","Resident","Scotland","South Asia",25973
+"Person","Resident","Scotland","Afghanistan",353
+"Person","Resident","Scotland","Bangladesh",1181
+"Person","Resident","Scotland","India",10523
+"Person","Resident","Scotland","Pakistan",12645
+"Person","Resident","Scotland","Sri Lanka",946
+"Person","Resident","Scotland","Other South Asia",325
+"Person","Resident","Scotland","North America",21796
+"Person","Resident","Scotland","Canada",8569
+"Person","Resident","Scotland","United States of America",11149
+"Person","Resident","Scotland","Jamaica",386
+"Person","Resident","Scotland","Other Caribbean & West Indies",1227
+"Person","Resident","Scotland","Other North America",465
+"Person","Resident","Scotland","South America",2617
+"Person","Resident","Scotland","Oceania",11263
+"Person","Resident","Scotland","Australia",7555
+"Person","Resident","Scotland","New Zealand",3413
+"Person","Resident","Scotland","Other Oceania",295
+"Person","Resident","Scotland","Other",937
+
+
+" Footnotes: 1. The European Union as defined on Census day (29 April 2001). 2. 'Other' consists of people born at sea or in the air, or with country of birth not stated. 3. People born in Central America have been included in North America. Crown copyright"
