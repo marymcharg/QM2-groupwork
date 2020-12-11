@@ -84,13 +84,13 @@ def add_to_csv(birthplaces):
     Args:
         birthplaces (dict): keys are artist names, values are birthplaces.
     """
-    dataset = pd.read_csv("official_charts_data_2.csv")
+    dataset = pd.read_csv("official_charts_data.csv")
     dataset.insert(3, "Birthplace", birthplaces)
     dataset.to_csv("official_charts_birthplaces.csv", index=False, encoding="utf-8")
 
 
 def main():
-    dataset = "official_charts_data_2.csv"
+    dataset = "official_charts_data.csv"
     find_artist(dataset)
 
 
