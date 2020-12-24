@@ -1,10 +1,14 @@
 import requests, bs4, pandas as pd
 import csv
 
+# adds birthplace and gender of artists to official_charts_data.csv 
+# using beautiful soup and www.last.fm, saves complete file as 1971_2011_top_40.csv
 
 def clean_name(name):
     if " FT " in name:
         name = name[:name.find(" FT ")]
+    if " FEATURING " in name:
+        name = name[:name.find(" FEATURING ")]
     if "/" in name:
         name = name[:name.find("/")]
     if " VS " in name:
@@ -13,25 +17,29 @@ def clean_name(name):
 
 
 def find_artist(dataset):
-    """Find artist name in dataset, .
+    """Find artist name in dataset.
     """
     data = pd.read_csv(dataset)
     names = data["Artist Name"]
     found_artists = {}
-    birthplaces = ["Birthplaces"]
+    found_genders = {}
+    birthplaces = []
+    gender = []
     for artist in names:
         name = clean_name(artist)
         if name not in found_artists:            
             print("Getting " + name)
             url = name.replace(" ", "+")
-            found_artists[name] = find_birthplace(url, found_artists)  
-            birthplaces.append(found_artists.get(name))          
+            found_artists[name] = find_birthplace(url, found_artists, gender, found_genders)  
+            birthplaces.append(found_artists.get(name))
         else:
             birthplaces.append(found_artists.get(name))
-    add_to_csv(birthplaces)
+            full_url = "https://www.last.fm/music/" + url
+            find_gender(full_url, found_genders, gender, name)
+    add_to_csv(birthplaces, gender)
 
 
-def find_birthplace(name, found_artists):
+def find_birthplace(name, found_artists, gender, found_genders):
     """Scrape LastFM for artist's birthplace.
     
     Args:
@@ -43,50 +51,96 @@ def find_birthplace(name, found_artists):
     url = "https://www.last.fm/music/" + name
     
     req = requests.get(url)
-    if req.status_code == 200:
-        req.raise_for_status()
-        soup = bs4.BeautifulSoup(req.text,"lxml")
+    req.raise_for_status()
+    soup = bs4.BeautifulSoup(req.text,"lxml")
+    error = soup.find_all("div", class_= "col-sm-3 col-sm-pull-6 error-page-marvin")   
+    if error == []:    
         try: 
-            data = soup.find_all("div", class_="metadata-column")
-            birthplace = data[1]
+            data = soup.find_all("dd", class_="catalogue-metadata-description")
+            birthplace = data[1].string
+            find_gender(url, found_genders, gender, name)
             return birthplace                
         except:
+            find_gender(url, found_genders, gender, name)
             return "N/A"
     else:
         try:
-            alt_search(name, found_artists)
+            alt_search(name, found_artists, gender, found_genders)
         except:
+            gender.append("ARTIST NOT FOUND")
             return "ARTIST NOT FOUND"
 
 
-def alt_search(name, found_artists):
+def alt_search(name, found_artists, gender, found_genders):
     new_name = name[:name.find(" & ")]
     if new_name not in found_artists: 
         url = "https://www.last.fm/music/" + new_name
         req = requests.get(url)
-    if req.status_code == 200:
         req.raise_for_status()
         soup = bs4.BeautifulSoup(req.text,"lxml")
-        try:
-            data = soup.find_all("div", class_="metadata-column")
-            birthplace = data[1]
-            return birthplace
-            found_artists[new_name] = found_artists.pop(name)
-            print("Replacing " + name + " with " + new_name)
-        except:
-            return IndexError
+        error = soup.find_all("div", class_= "col-sm-3 col-sm-pull-6 error-page-marvin")   
+        if error == []:   
+            try:
+                data = soup.find_all("dd", class_="catalogue-metadata-description")
+                birthplace = data[1].string
+                found_artists[new_name] = found_artists.pop(name)
+                print("Replacing " + name + " with " + new_name)
+                find_gender(url, found_genders, gender, name)
+                return birthplace
+            except:
+                find_gender(url, found_genders, gender, name)
+                return "N/A"
+        else:
+            gender.append("ARTIST NOT FOUND")
+            return "ARTIST NOT FOUND"
     else:
+        find_gender(url, found_genders, gender, name)
         return found_artists.get(new_name)
 
 
-def add_to_csv(birthplaces):
+def find_gender(url, found_genders, gender, name):
+    if name not in found_genders: 
+        url = url + "/+tags"
+        req = requests.get(url)
+        req.raise_for_status()
+        soup = bs4.BeautifulSoup(req.text,"lxml")
+        error = soup.find_all("div", class_= "col-sm-3 col-sm-pull-6 error-page-marvin")
+        if error == []:   
+            data = soup.find_all("a", class_="link-block-target")
+            count = 0
+            num_tags = len(data)
+            for tag in data:
+                if "female vocalists" in tag.string:
+                    gender.append("F")
+                    found_genders[name] = "F"
+                    break
+                elif "male vocalists" in tag.string:
+                    gender.append("M")
+                    found_genders[name] = "M"
+                    break
+                count += 1
+                if count == num_tags:
+                    gender.append("N/A")
+                    found_genders[name] = "N/A"
+                else:
+                    continue
+        else:
+            gender.append("ARTIST NOT FOUND")
+            found_genders[name] = "ARTIST NOT FOUND"
+    else:
+        gender.append(found_genders.get(name))
+
+
+def add_to_csv(birthplaces, gender):
     """
     Args:
         birthplaces (dict): keys are artist names, values are birthplaces.
     """
     dataset = pd.read_csv("official_charts_data.csv")
     dataset.insert(3, "Birthplace", birthplaces)
-    dataset.to_csv("official_charts_birthplaces.csv", index=False, encoding="utf-8")
+    dataset.insert(4, "Gender", gender)
+    dataset.to_csv("1971_2011_top_40.csv", index=False, encoding="utf-8")
+    print("Done!")
 
 
 def main():
