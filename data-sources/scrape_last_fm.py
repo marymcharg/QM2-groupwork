@@ -160,9 +160,7 @@ def add_to_csv(birthplaces, gender, filename):
     dataset = pd.read_csv(filename)
     dataset.insert(3, "Birthplace", birthplaces)
     dataset.insert(4, "Gender", gender)
-    output = filename.replace("input", "output")
-    print(output)
-    dataset.to_csv(output, index=False, encoding="utf-8")
+    dataset.to_csv("1971_2011_top_40.csv", index=False, encoding="utf-8")
 
 
 def main():
