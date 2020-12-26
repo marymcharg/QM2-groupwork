@@ -1,3 +1,6 @@
+# removes city names/states/etc. from data in "Birthplace" column in "1971_2011_top_40.csv", creates
+# new csv "1971_2011_top_40_new.csv" with additional "Country of Origin" column for cleaned data
+
 import os, csv
 import pandas as pd
 
