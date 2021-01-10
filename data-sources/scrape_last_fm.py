@@ -153,10 +153,6 @@ def find_gender(url, found_genders, gender, name):
 
 
 def add_to_csv(birthplaces, gender, filename):
-    """
-    Args:
-        birthplaces (dict): keys are artist names, values are birthplaces.
-    """
     dataset = pd.read_csv(filename)
     dataset.insert(3, "Birthplace", birthplaces)
     dataset.insert(4, "Gender", gender)
