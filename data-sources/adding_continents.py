@@ -15,6 +15,9 @@ df2 = pd.read_csv("Countries-Continents.csv")
 df2.set_index("Country", inplace=True)
 cont_dict = df2.T.to_dict("records")[0]
 
+# set the UK as its own continent (for the sake of comparison to other continents)
+cont_dict["United Kingdom"] = "United Kingdom"
+
 
 # drop rows with no Country of Origin
 df1.replace("", np.nan, inplace=True)
