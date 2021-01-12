@@ -1,0 +1,95 @@
+This study is focused on the music industry and its factors of globalization specifically within the United Kingdom, and so data was collected accordingly. Data on the factors of globalization determined through the literature explored was acquired through UK centric websites such as Official Charts and Nomis, although some aspects initially considered had to be dropped due to constraints with research.
+
+Gathering data from the UK music scene:
+
+Data from the UK music scene was collected through various reputable websites. Through our review of literature concerning the popular music scene and our own search of websites that catalogue facts about music, we chose to use the Official Charts website to gather data about which artists were popular when, with the aid of their chart archives. Starting in November 1952, the Official Charts has archived the UK’s top 40 charting songs and artists each week to the present day. We used the Python library BeautifulSoup to scrape the title of the top 40 songs each week from 1971 to 2011, along with their accompanying artists and charting date. 
+
+# Retrieve chart dates and tidy the format
+    sdate = soup.find_all("p", class_="article-date")
+    date = sdate[0].text.split("-")[0]
+
+# Retrieve the artist and single names
+    artists = soup.find_all("div", class_="artist")
+    singles = soup.find_all("div", class_="title")
+
+Concerning the country of birth of artists, we found the website Last.fm appropriate, since it contains the majority of artists' country of birth or nationality within the website's data and has been used in past literature. This data was also acquired through web scraping due to the difficulty of obtaining access to the website's API within the time constraints of the project. Using the artists collected from Official Charts, the scraper first removes any featured artists using the clean_name() function.
+
+# removing artists after “FT”, “FEAT”, or “FEATURING”
+    if " FT " in name:
+        name = name[:name.find(" FT ")]
+    if " FEAT " in name:
+        name = name[:name.find(" FEAT ")]
+    if " FEATURING " in name:
+        name = name[:name.find(" FEATURING ")]
+
+It then navigates to each unique artist’s page on Last.fm and stores their birthplace and gender, and finally inserts this data into the dataset collected from Official Charts. If data was not found for a particular artist, it would enter a value of N/A. 
+
+# adding lists of found birthplaces and gender to dataset, then exporting as a .csv file
+    dataset.insert(3, "Birthplace", birthplaces)
+    dataset.insert(4, "Gender", gender)
+    dataset.to_csv("1971_2011_top_40.csv", index=False, encoding="utf-8")
+ 
+
+Getting census data for Great Britain:
+
+Census data concerning the Country of Birth, Ethnic Groups, Total Population and Gender Distribution were collected for Great Britain through various official websites. Northern Ireland was excluded from the collection of data for the sake of convenience: Northern Ireland has historically performed its censuses separately to Great Britain for the entirety of the period we are studying (1971-2011), and finding easily accessible and manipulatable data from the years 1971 and 1981 had proven difficult. Though ultimately unused because the data spanned only from 1991 to 2011, data on Ethnic Groups in Great Britain was collected initially in the event that we decided to pursue analysis of Ethnic Group representation in popular music, which was initially planned.
+
+For the years 1971 to 1991, the Office for National Statistics affiliated website Nomis (https://www.nomisweb.co.uk/)  was used to collect data for the entirety of Great Britain - Scotland, Wales and England - through the use of the data query feature which output CSV files. Data was not only collected for the whole of Great Britain but also each country separately for the sake of adaptability if we decided to focus on a specific country. However, for the years 2001 and 2011, data had to be collected separately for Scotland and England + Wales, since Scotland had visibly begun performing the decadal census independently. Thankfully, Scotland stuck to the same dates for performing their census as the census that is performed for England and Wales, so we obtained coherent data. This data about the Scottish census was collected through a separate website dedicated to the scottish census, Scotland’s Census (https://www.scotlandscensus.gov.uk/), which also had the option to output data as CSV files, and later merged with the data for England and Wales with the help of the pandas software library - though the CSV for Total Population and Gender Distribution was created by hand on Excel due to large inconsistencies through the years with how population bases were presented.
+
+Vanessa - Visualisations for gender data artists + census 
+
+Top 40 charts artists gender dataset: Before starting to create the visualisations, we cleaned up the data frame by: creating a new column named “year” rather than using the exact date. We used df[df['Gender'].notna()] to drop null values due to the fact that the Spotify dataset didn’t always have the gender in the cases on collaborations or simply due to lack of information.
+
+df = pd.read_csv("top 40 gender.csv")
+df["Date Charted"] = pd.to_datetime(df["Date Charted"]).dt.strftime("%Y-%m-%d")
+df['year'] = pd.DatetimeIndex(df["Date Charted"]).year
+df_clean = df[df['Gender'].notna()]
+ 
+Then, to create a bar graph showing the artists’ gender ratio over the 4 decades, we used value.counts to account for the ratio of artists’ gender labelled “M” for male versus “F” for female, and normalised it. We created start and end dates for each decade and found the gender ratio for the 4 decades.
+
+#for decade 1971-81 
+start_date = '1971-01-01'
+end_date = '1981-01-01'
+test = (df["Date Charted"]> start_date) & (df["Date Charted"]<= end_date)
+decades = df.loc[test]
+decades["Gender"].value_counts(normalize=True)
+ 
+Making the bar graph
+sizes = [0.656271, 0.343729, 0.728527, 0.271473, 0.732854, 0.267146, 0.721733, 0.278267]
+labels = ["F 1971-81", "M 1971-81", "F 1981-91", "M 1981-91", "F 1991-01", "M 1991-01", "F 2001-11", "M 2001-11"]
+plt.xticks(height, labels)
+plt.xticks(rotation=45)
+plt.bar(height, sizes, color=['red','blue','red','blue','red','blue','red','blue'])
+plt.ylabel("Gender proportion")
+plt.title("Top 40 Charts Artists' Gender Ratio, Decades 1971-2001")
+plt.show()
+
+We also found the gender ratio for every single year by creating a for loop, which produced a list of all the male and female percentages in every year.
+
+for year in range(1971,2012):
+    test = (df["Date Charted"]> (str(year))) & (df["Date Charted"]<= (str(year+1)))
+    decades = df.loc[test]
+    decades["Gender"].value_counts(normalize=True)
+    print(decades["Gender"].value_counts(normalize=True))     
+
+
+Britain Gender Census Dataset: 
+We created two new columns in this census gender dataframe because we needed not the raw population numbers but the percentage of men and the percentage of women.
+
+df["Male percentage"] = df["Male"]/df["Total"]
+df["Female percentage"] = df["Female"]/df["Total"]
+ 
+
+
+We created the line graph with 2 lines, one for the percentage of women in the census and the percentage of women in the top charts over the decades, and included a legend.
+
+x1 = [1971.0, 1981.0, 1991.0, 2001.0, 2011]
+y1 = [0.513944, 0.513542, 0.515841, 0.513896, 0.508878]
+plt.title("Percentage of women, census data vs. top artists")
+y2 = [0.6562, 0.7285, 0.7328, 0.7217, 0.7217]
+plt.ylim(0.1,0.9)
+plt.ylabel("Percentage of women")
+plt.xlabel("Decades")
+plt.plot(x1,y2, label="top charts")
+plt.plot(x1,y1, label="census")
+plt.legend()
