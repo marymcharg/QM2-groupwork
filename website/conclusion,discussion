@@ -1,0 +1,7 @@
+Some limitations:
+
+Our webscraper is limited as it dropped any songs which featured a collaboration, which could skew our data given how common it is to find songs which feature another artist nowadays. The data we scraped included many null values which also may have skewed the results, for instance, any songs produced by ensembles of mixed genders were null values in the gender column. 
+
+In our analysis, we did not factor in the ranking of the artist in the top charts for the sake of convenience, which could have improved the depth and complexity of our analysis, given that in our literature review we noted a study which showed women charted less frequently but higher than men. We did not distinguish between group ensembles versus solo artists, which could have provided more interesting insights, as one study had observed gender inequality being more prominent in group ensembles rather than solo artists.
+
+When exploring the topic of globalisation, we intended to include the factor of artist ethnicity in our analysis along with artist birthplace to give us a fuller picture, however, we could not find adequate data to suit our needs. For looking at the presence of foreign languages in pop music over time, we unfortunately did not have sufficient time to build a web scraper, so we did not include this factor in our analysis. This could have been interesting to observe, with potentially a more pronounced effect in the last decade or so.
